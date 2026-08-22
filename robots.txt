@@ -1,0 +1,5 @@
+# Tree India Foundation
+User-agent: *
+Allow: /
+
+Sitemap: https://treeindiafoundation.org/sitemap.xml

@@ -1,112 +1,164 @@
-# Tree India Foundation — website
+# Tree India Foundation — Website
 
-Static, multilingual (English / मराठी / हिंदी) website for Tree India Foundation.
-No build step, no framework. Just HTML, CSS, and vanilla JavaScript, so it runs on
-GitHub Pages, any Apache/NGINX server, or an EC2 instance without changes.
+Multilingual (English / हिंदी / मराठी), SEO-ready static site for
+**treeindiafoundation.org**. Positioning: **Education and Ecology**.
 
-## Folder structure
+Each language is a separate, crawlable page so search engines can index all three:
+
+| Language | URL                                  | File              |
+|----------|--------------------------------------|-------------------|
+| English  | https://treeindiafoundation.org/     | `index.html`      |
+| हिंदी     | https://treeindiafoundation.org/hi/  | `hi/index.html`   |
+| मराठी     | https://treeindiafoundation.org/mr/  | `mr/index.html`   |
+
+---
+
+## 1. Project structure
+
 ```
 tif-website/
-├── index.html            The whole page (structure only; text comes from lang/)
-├── CNAME                 Custom domain for GitHub Pages (treeindiafoundation.org)
-├── css/
-│   └── styles.css        All styling. Colours + fonts are the :root variables at the top.
+├── index.html            EN page  (generated — do not hand-edit)
+├── hi/index.html         HI page  (generated — do not hand-edit)
+├── mr/index.html         MR page  (generated — do not hand-edit)
+├── content/
+│   ├── en.json           ← EDIT TEXT HERE (English)
+│   ├── hi.json           ← EDIT TEXT HERE (Hindi)
+│   └── mr.json           ← EDIT TEXT HERE (Marathi)
+├── build.py              regenerates the 3 pages from content/*.json
+├── _map.svg              interactive Maharashtra map (used by build.py)
+├── css/styles.css        all styling
 ├── js/
-│   ├── config.js         >>> Paste your Google Apps Script URL here <<<
-│   ├── i18n.js           Language loading + switching
-│   ├── forms.js          Sends form submissions to Google Sheets
-│   └── main.js           Nav, map popups, modals, scroll effects
-├── lang/
-│   ├── en.json           English text  (source of truth)
-│   ├── mr.json           Marathi text
-│   └── hi.json           Hindi text
-├── assets/               Logo + favicon (enhanced PNGs)
-└── google-apps-script/
-    ├── Code.gs           Backend that saves forms to your Sheet + emails
-    └── SETUP.md          10-minute setup guide for the Sheet + Web App
+│   ├── config.js         ← paste the Google Apps Script URL here to switch forms on
+│   ├── forms.js          form submit + validation
+│   └── main.js           nav, reveal, map popups, modals, language switch
+├── assets/               logo, favicon, Open Graph image
+├── google-apps-script/   Code.gs + SETUP.md for the forms backend (Google Sheets)
+├── robots.txt            references the sitemap
+├── sitemap.xml           /, /hi/, /mr/ with hreflang
+└── CNAME                 treeindiafoundation.org
 ```
 
-## Editing content
-
-- **Change any wording:** edit the matching key in `lang/en.json` (and `lang/mr.json`,
-  `lang/hi.json` for the other languages). Each on-page text has a `data-i18n="key"`
-  in `index.html`; the JSON files hold the actual words. Keep the same keys in all three
-  files.
-- **Change colours or fonts:** edit the `:root { --forest: ... }` variables at the top of
-  `css/styles.css`. Everything on the site references those tokens.
-- **Change the logo:** replace the files in `assets/` (keep the same filenames), or update
-  the `src=` paths in `index.html`.
-- **Fill in the blanks:** the Contact section has placeholders for your office address and
-  phone number. Edit `con.officeVal` and `con.phoneVal` in the three `lang/*.json` files.
-
-## Connect the forms (Contact, Volunteer, Partner, Donate)
-
-Follow `google-apps-script/SETUP.md`. In short: create a Google Sheet, paste `Code.gs`
-into Extensions → Apps Script, deploy it as a Web App, and paste the resulting URL into
-`js/config.js`. Each form saves to its own tab, emails an alert to
-treeindiafoundation1@gmail.com, and auto-replies to the visitor.
-Until you add the URL, forms show a friendly "not connected yet" note.
+> **The three `index.html` files are generated.** Never edit them by hand — your
+> changes will be overwritten on the next build. Edit `content/*.json` and rebuild.
 
 ---
 
-## Deploy on GitHub Pages (recommended) with treeindiafoundation.org
+## 2. Editing the text (all three languages)
 
-1. Create a GitHub repository (e.g. `tif-website`) and upload **the contents of this
-   folder** (so `index.html` sits at the repo root).
-2. In the repo: **Settings → Pages**.
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` (or `master`), folder `/ (root)` → **Save**.
-3. **Custom domain:** the included `CNAME` file already contains
-   `treeindiafoundation.org`. GitHub will pick it up. In Settings → Pages, confirm the
-   custom domain shows `treeindiafoundation.org`, then tick **Enforce HTTPS** once it is
-   available (can take a few minutes to an hour).
-4. **Point the domain at GitHub (in GoDaddy DNS):**
-   - Add four **A records** for `@` pointing to GitHub's IPs:
-     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - Add a **CNAME record** for `www` pointing to `YOUR-USERNAME.github.io`.
-   - Remove any old parked/forwarding A records for `@` first.
-   - DNS changes can take a little while to take effect.
+1. Open the language file you want to change: `content/en.json`, `content/hi.json`
+   or `content/mr.json`. The keys are the same in every file, so the same field
+   is easy to find across languages.
+2. Change the text values only (keep the keys and the JSON structure).
+3. Rebuild the pages:
 
-That's it. To update the site later, edit files and push, GitHub Pages redeploys
-automatically.
+   ```bash
+   python3 build.py
+   ```
 
-> Note: paths in the site are **relative** (e.g. `css/styles.css`, not `/css/styles.css`),
-> so it also works from a project subpath like `username.github.io/tif-website/` if you
-> ever skip the custom domain.
+   This rewrites `index.html`, `hi/index.html` and `mr/index.html`.
+4. Preview locally (so the `/css`, `/js`, `/assets` paths resolve):
 
----
+   ```bash
+   python3 -m http.server 8000
+   # then open http://localhost:8000/  ,  /hi/  ,  /mr/
+   ```
+5. Commit and push (see deploy section).
 
-## Alternative: Apache or NGINX (EC2 or any server)
+> GitHub Pages does not run Python, so **`build.py` must be run on your computer
+> before you push.** You commit the generated HTML.
 
-The site is plain static files, so just serve this folder.
-
-**Apache**
-1. Copy the folder contents into the web root, e.g. `/var/www/html/`.
-2. Ensure the site is enabled and `index.html` is a directory index (default on Apache).
-3. Restart: `sudo systemctl restart apache2`.
-
-**NGINX**
-```nginx
-server {
-    listen 80;
-    server_name treeindiafoundation.org www.treeindiafoundation.org;
-    root /var/www/tif-website;   # folder with index.html
-    index index.html;
-    location / { try_files $uri $uri/ =404; }
-}
-```
-Then: `sudo nginx -t && sudo systemctl reload nginx`.
-Add HTTPS with Let's Encrypt: `sudo certbot --nginx`.
-
-On EC2, the `CNAME` file is harmless (it only matters to GitHub Pages) — you can leave it
-or delete it. Point your domain's A record at the instance's Elastic IP instead.
+**Writing rule:** do not use em dashes ( — ) anywhere. Use commas, colons or periods.
 
 ---
 
-## Notes
-- The Marathi and Hindi text was drafted as a starting point. Have a native speaker
-  proofread `lang/mr.json` and `lang/hi.json` before launch, especially programme terms.
-- The impact numbers are five-year **targets**, labelled as such on the page.
-- Form delivery uses a "fire and forget" request (the browser can't read Apps Script's
-  cross-origin reply), so the site shows an optimistic success message. Your Sheet and the
-  alert email are the real record that a submission arrived.
+## 3. Turning the forms on (Contact, Volunteer, Partner, Donate)
+
+The four forms are built and validated but not yet connected. Until connected they
+show: *"Form not connected yet. Please email treeindiafoundation1@gmail.com."*
+
+To activate them:
+1. Follow `google-apps-script/SETUP.md` to deploy `Code.gs` as a **Web App**
+   (this creates a Google Sheet, emails an alert to treeindiafoundation1@gmail.com,
+   and auto-replies to the submitter).
+2. Copy the Web App URL and paste it into `js/config.js`:
+
+   ```js
+   window.TIF_CONFIG = { GAS_URL: "https://script.google.com/macros/s/XXXX/exec" };
+   ```
+3. Commit and push. No rebuild needed (config.js is shared by all pages).
+
+Donations are currently **pledge-only** (they record intent to the sheet).
+For live payments, integrate Razorpay / PayU / CCAvenue on the donate form later.
+
+---
+
+## 4. Deploying on GitHub Pages (custom domain)
+
+1. Create a repo (e.g. `tree-india-foundation/website`) and push **the contents of
+   this folder** to the `main` branch (including `index.html`, `hi/`, `mr/`,
+   `CNAME`, `robots.txt`, `sitemap.xml`, `assets/`, `css/`, `js/`).
+2. Repo **Settings → Pages**: Source = *Deploy from a branch*, Branch = `main`,
+   Folder = `/ (root)`. Save.
+3. **Custom domain**: it will read the `CNAME` file (`treeindiafoundation.org`).
+   Tick **Enforce HTTPS** once the certificate is issued.
+4. **DNS at GoDaddy** — point the domain at GitHub Pages:
+
+   | Type  | Host | Value            |
+   |-------|------|------------------|
+   | A     | @    | 185.199.108.153  |
+   | A     | @    | 185.199.109.153  |
+   | A     | @    | 185.199.110.153  |
+   | A     | @    | 185.199.111.153  |
+   | CNAME | www  | `<your-user>.github.io` |
+
+   DNS can take up to a few hours to propagate.
+5. `/hi/` and `/mr/` work automatically because they are real folders with their
+   own `index.html`. No extra routing config is needed.
+
+To update the live site later: edit `content/*.json` → `python3 build.py` →
+commit → push. GitHub Pages redeploys automatically.
+
+---
+
+## 5. Google Search Console (after the site is live on HTTPS)
+
+1. Go to Google Search Console and add a property for **treeindiafoundation.org**
+   (Domain property, verified with a DNS TXT record at GoDaddy, is recommended;
+   URL-prefix with an HTML tag also works).
+2. **Sitemaps →** submit: `sitemap.xml`
+   (full URL: `https://treeindiafoundation.org/sitemap.xml`).
+3. **URL Inspection →** test and *Request indexing* for each of:
+   `https://treeindiafoundation.org/`, `/hi/`, `/mr/`.
+4. Over the following days, review **Page indexing**, **HTTPS**, **Core Web Vitals**
+   and **Enhancements** for any errors and fix as needed.
+
+> Being technically indexable does **not** guarantee ranking or immediate indexing.
+> Ranking also depends on content quality, links, authority and competition.
+
+---
+
+## 6. SEO features already built in
+
+- Separate indexable URL per language with content rendered directly in the HTML.
+- Unique `<title>` and meta description per language.
+- One clear `<h1>` per page and a logical H2/H3 order.
+- `rel="canonical"` per page and `hreflang` for en / hi / mr / x-default.
+- Open Graph + Twitter tags with a branded share image (`assets/TIF_og.jpg`).
+- JSON-LD structured data: NGO/Organization + WebSite + WebPage + ContactPoint,
+  using only verified details (name, URL, logo, email, phone, Pune address).
+- `robots.txt` (allows all, references the sitemap) and a valid `sitemap.xml`.
+- Descriptive image `alt` text and semantic, keyboard-accessible markup.
+
+---
+
+## 7. Notes / open items
+
+- **Address PIN:** the brief said "Pune - 48"; the full address is written as
+  `... Katraj-Kondhwa Road, Pune - 411048` (48 read as the 411048 PIN).
+  Change it in `content/*.json` if that is not correct.
+- **Hindi / Marathi** are professional drafts; a quick native review before wide
+  promotion is recommended (Marathi especially, as your native language).
+- **Logo:** the tagline in the artwork now reads *Transforming Roots through
+  Education & Ecology*. Original is backed up at
+  `TIF_Logo_Transparent_ORIG_backup.png` (in the outputs folder, not the site).
+- **Forms** go live only after the Apps Script URL is pasted into `js/config.js`.

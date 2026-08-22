@@ -1,0 +1,342 @@
+{
+ "meta": {
+  "title": "Tree India Foundation | Education and Ecology",
+  "desc": "Tree India Foundation connects education, green skills, experiential learning and community action to help build a greener, more sustainable India."
+ },
+ "brand": {
+  "name": "Tree India Foundation",
+  "tag": "Education and Ecology"
+ },
+ "nav": {
+  "home": "Home",
+  "about": "About",
+  "work": "Our Work",
+  "impact": "Impact",
+  "partner": "Partner",
+  "contact": "Contact",
+  "donate": "Donate",
+  "involved": "Get Involved"
+ },
+ "hero": {
+  "eyebrow": "Registered Non-Profit · Pune, Maharashtra, India",
+  "h1": "Learning that reaches beyond the classroom",
+  "tagline": "Transforming Roots through Education & Ecology",
+  "lead": "We believe education becomes meaningful when learners can experience, question, create and act. We work with teachers, schools, students and communities to make learning real, and we nurture care for the environment as a natural part of that learning.",
+  "cta1": "Partner with us",
+  "cta2": "See our work",
+  "stat1": "Core pillars",
+  "stat2": "Learner outcomes",
+  "stat3": "CSR partnership areas"
+ },
+ "about": {
+  "eyebrow": "Who we are",
+  "title": "Education is at the heart of everything we do.",
+  "body1": "Education is at the heart of everything we do. We help learning move from textbooks to real life, and we nurture a generation that is curious, capable and ready to act.",
+  "body2": "Tree India Foundation works with teachers, school leaders, students and communities to build the knowledge, skills and learning spaces needed for meaningful education. Alongside strong learning, we help young people understand their environment, build green skills and take responsibility for the world around them. Our work brings together education, green skills, experiential learning and community participation in one connected journey.",
+  "visionT": "Our vision",
+  "visionB": "An India where every community protects its own green cover, and every child grows up an ecological steward.",
+  "missionT": "Our mission",
+  "missionB": "To restore native ecosystems and embed environmental education across schools and communities, transparently, measurably and at scale.",
+  "pillarsEyebrow": "Our four pillars"
+ },
+ "pillars": [
+  {
+   "t": "Build Capacity",
+   "d": "Equip teachers, educators and school leaders with the knowledge and approaches to create meaningful learning experiences."
+  },
+  {
+   "t": "Learn",
+   "d": "Build strong understanding through curriculum, stories, dialogue and exploration."
+  },
+  {
+   "t": "Explore and Connect",
+   "d": "Step beyond the classroom to experience real environments, communities and contexts, linking academic knowledge with people, places, nature, livelihoods and real challenges."
+  },
+  {
+   "t": "Create and Act",
+   "d": "Apply learning through hands-on projects, experiments, problem-solving and teamwork, turning learning into action at the level of the individual, the school and the community."
+  }
+ ],
+ "aim": {
+  "eyebrow": "What we aim to build",
+  "title": "What We Aim to Build",
+  "subtitle": "Learners ready for a changing world",
+  "intro": "Our programmes contribute to a future where every learner grows in these seven ways:",
+  "items": [
+   {
+    "t": "Curious",
+    "d": "Asking questions about the world around them."
+   },
+   {
+    "t": "Capable",
+    "d": "Developing transferable and green skills."
+   },
+   {
+    "t": "Connected",
+    "d": "Understanding their relationship with nature and communities."
+   },
+   {
+    "t": "Creative",
+    "d": "Designing solutions to real challenges."
+   },
+   {
+    "t": "Conscious",
+    "d": "Making responsible choices."
+   },
+   {
+    "t": "Confident",
+    "d": "Taking part in collective action."
+   },
+   {
+    "t": "Change-Ready",
+    "d": "Contributing to a more sustainable future."
+   }
+  ]
+ },
+ "work": {
+  "eyebrow": "What we do",
+  "title": "Programmes that plant, teach, and last",
+  "intro": "Each initiative connects ecology with education, turning plantation into a lived, measured practice for schools and communities.",
+  "items": [
+   {
+    "t": "Miyawaki Reforestation",
+    "d": "Dense, fast-growing native forests on small urban and rural plots, designed to become self-sustaining within a few years.",
+    "tag": "Reforestation"
+   },
+   {
+    "t": "Green School Transformation",
+    "d": "An NEP 2020 experiential-learning model with Green Skill Labs, Eco Cabinets, and student Green Ambassadors leading eco-action on campus.",
+    "tag": "Education"
+   },
+   {
+    "t": "Van Mahotsav & Community Plantation",
+    "d": "Annual tree-planting festivals that bring villages, schools, and volunteers together to green shared public land.",
+    "tag": "Community"
+   },
+   {
+    "t": "Environmental Education",
+    "d": "Curriculum-linked eco-literacy, teacher training, and student workbooks that make sustainability a habit, not a topic.",
+    "tag": "Education"
+   },
+   {
+    "t": "Community Forestry",
+    "d": "Working with gram panchayats and forest-fringe communities on CAMPA-aligned plantation and long-term local ownership.",
+    "tag": "Community"
+   },
+   {
+    "t": "Green Accountability",
+    "d": "Geo-tagged plantation records, sapling survival audits, and CSR/BRSR-ready impact reports, so every contribution is traceable.",
+    "tag": "Transparency"
+   }
+  ]
+ },
+ "where": {
+  "eyebrow": "Where we work",
+  "title": "Rooted in Maharashtra, scaling outward",
+  "intro": "We begin in the districts we know best: building deep, district-level partnerships before we widen our reach across the state and beyond.",
+  "sdg": "Aligned with the UN Sustainable Development Goals",
+  "sdgs": [
+   {
+    "n": "4",
+    "label": "Quality Education",
+    "color": "#C5192D"
+   },
+   {
+    "n": "6",
+    "label": "Clean Water",
+    "color": "#26BDE2"
+   },
+   {
+    "n": "13",
+    "label": "Climate Action",
+    "color": "#3F7E44"
+   },
+   {
+    "n": "15",
+    "label": "Life on Land",
+    "color": "#56C02B"
+   },
+   {
+    "n": "17",
+    "label": "Partnerships",
+    "color": "#19486A"
+   }
+  ],
+  "districts": [
+   "Sangli",
+   "Satara",
+   "Kolhapur",
+   "Ratnagiri",
+   "Pune",
+   "Nashik"
+  ],
+  "legendPri": "TIF priority districts",
+  "legendOth": "Other districts",
+  "hint": "Hover a district to see its name.",
+  "popNote": "Active programme geography for Tree India Foundation.",
+  "distmap": {
+   "Sangli": "Sangli",
+   "Satara": "Satara",
+   "Kolhapur": "Kolhapur",
+   "Ratnagiri": "Ratnagiri",
+   "Pune": "Pune",
+   "Nashik": "Nashik"
+  }
+ },
+ "impact": {
+  "eyebrow": "Our five-year mission",
+  "title": "The scale we're building toward",
+  "intro": "These are TIF's five-year growth targets: the milestones our programmes and partnerships are designed to reach by Year 5.",
+  "note": "Figures shown are TIF's five-year scaling targets, not results achieved to date. As programmes deliver, this section will be updated with verified, geo-tagged impact data.",
+  "stats": [
+   {
+    "n": "565",
+    "label": "Schools transformed into green campuses"
+   },
+   {
+    "n": "2,82,500",
+    "label": "Students engaged in eco-learning"
+   },
+   {
+    "n": "14,150",
+    "label": "Teachers trained in green pedagogy"
+   },
+   {
+    "n": "11,300",
+    "label": "Student Green Ambassadors developed"
+   },
+   {
+    "n": "40+",
+    "label": "Districts across India"
+   },
+   {
+    "n": "8-10",
+    "label": "States reached"
+   }
+  ]
+ },
+ "involved": {
+  "eyebrow": "Get involved",
+  "title": "Three ways to help India grow greener",
+  "intro": "Whether you have time, a school, or a CSR budget, there's a place for you in this work.",
+  "items": [
+   {
+    "t": "Volunteer",
+    "d": "Join plantation drives, mentor Green Ambassadors, or lend your skills to a programme near you.",
+    "btn": "Become a volunteer"
+   },
+   {
+    "t": "Partner with us",
+    "d": "Schools, gram panchayats, and institutions: bring the Green School model or a plantation project to your community.",
+    "btn": "Start a partnership"
+   },
+   {
+    "t": "Fund the work (CSR)",
+    "d": "Support Schedule VII-eligible, CSR/BRSR-ready projects with transparent, geo-tagged reporting on every rupee.",
+    "btn": "Support a project"
+   }
+  ]
+ },
+ "partner": {
+  "eyebrow": "Partner with TIF",
+  "title": "Invest in learning. Enable skills. Create change.",
+  "body": "Your CSR partnership can help create learning ecosystems where children learn by doing, teachers become facilitators of change, schools become models of sustainability, and communities become partners in transformation.",
+  "items": [
+   {
+    "t": "Educator Development",
+    "d": "Train and mentor teachers and school leaders in experiential and green education."
+   },
+   {
+    "t": "Green Skills for Youth",
+    "d": "Help students build future-ready skills through hands-on environmental learning."
+   },
+   {
+    "t": "Learning Journeys",
+    "d": "Give students meaningful, curriculum-linked field exposure and EduTours."
+   },
+   {
+    "t": "Living Learning Spaces",
+    "d": "Create food forests, biodiversity gardens and sustainable learning spaces."
+   },
+   {
+    "t": "Sustainable Schools",
+    "d": "Support whole-school sustainability and solar-based learning ecosystems."
+   },
+   {
+    "t": "Environmental Action",
+    "d": "Help students and communities move from awareness to local action."
+   },
+   {
+    "t": "Village Transformation",
+    "d": "Support participatory, place-based models of sustainable community development."
+   }
+  ]
+ },
+ "cta": {
+  "title": "Let us build the future of learning, together.",
+  "body": "Whether you are a school, a community or a CSR partner, there is a place for you in this work. We would love to talk.",
+  "btn": "Get in touch"
+ },
+ "donate": {
+  "eyebrow": "Support our work",
+  "title": "Every contribution takes root",
+  "body": "Your support plants native forests, sets up Green Skill Labs, and trains the young stewards who'll protect them. We report back with geo-tagged, verifiable proof of impact.",
+  "legal": "Tree India Foundation is a registered non-profit. Share your details below and our team will reach out with donation and tax-exemption information.",
+  "cardT": "Make a donation",
+  "custom": "Or enter a custom amount (₹)",
+  "btn": "Pledge my support",
+  "small": "A secure payment gateway is being set up. For now, we collect your pledge and follow up personally."
+ },
+ "contact": {
+  "eyebrow": "Get in touch",
+  "title": "Let's grow something together",
+  "intro": "Questions, partnerships, or press, we'd love to hear from you.",
+  "email": "Email",
+  "web": "Website",
+  "office": "Office",
+  "officeVal": "O - 1111, Three Jewels Society, Tilekar Nagar, Katraj-Kondhwa Road, Pune - 411048",
+  "phone": "Phone",
+  "phoneVal": "+91 82371 93624"
+ },
+ "form": {
+  "name": "Your name",
+  "namePh": "Full name",
+  "email": "Email",
+  "emailPh": "you@example.com",
+  "phone": "Phone",
+  "phoneOpt": "Phone (optional)",
+  "district": "Your district / city",
+  "topic": "I'm reaching out about",
+  "topic.vol": "Volunteering",
+  "topic.part": "School / community partnership",
+  "topic.csr": "CSR / funding",
+  "topic.press": "Media & press",
+  "topic.other": "Something else",
+  "msg": "Message",
+  "msgPh": "Tell us how you'd like to help...",
+  "send": "Send message",
+  "submit": "Submit",
+  "sending": "Sending...",
+  "ok": "Thank you! We'll be in touch soon.",
+  "err": "Something went wrong. Please try again or email us.",
+  "required": "Please fill the required fields.",
+  "noconf": "Form not connected yet. Please email treeindiafoundation1@gmail.com."
+ },
+ "modal": {
+  "vol.t": "Become a volunteer",
+  "vol.s": "Tell us a little about you and how you'd like to help.",
+  "vol.help": "How would you like to help?",
+  "part.t": "Start a partnership",
+  "part.s": "For schools, gram panchayats, and institutions.",
+  "part.org": "Organisation / school",
+  "part.about": "Tell us about your partnership idea"
+ },
+ "footer": {
+  "about": "Transforming roots through education and ecology. We help learning reach beyond the classroom and nurture care for the world around us.",
+  "explore": "Explore",
+  "pillars": "Our pillars",
+  "reach": "Get in touch",
+  "rights": "All rights reserved.",
+  "regd": "Registered non-profit · Maharashtra, India"
+ }
+}

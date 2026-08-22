@@ -18,6 +18,14 @@
       a.addEventListener("click", function () { menu.classList.remove("open"); ham.setAttribute("aria-expanded", "false"); });
     });
 
+    // language switch: keep the current section when changing language
+    document.querySelectorAll("#langSwitch a[data-base]").forEach(function (a) {
+      var base = a.getAttribute("data-base");
+      function sync() { a.setAttribute("href", base + (location.hash || "")); }
+      sync();
+      window.addEventListener("hashchange", sync);
+    });
+
     // active link on scroll
     var links = [].slice.call(document.querySelectorAll(".menu a.link"));
     document.querySelectorAll("section[id]").forEach(function (s) {
@@ -56,9 +64,10 @@
     if (wrap && svg && pop) {
       var pinned = null;
       function labelFor(name, isPri) {
-        var loc = (window.TIF_DISTRICTS && window.TIF_DISTRICTS[name]) || name;
-        var badge = isPri ? '<span class="badge">' + ((window.TIF_T && window.TIF_T["map.legendPri"]) || "TIF priority district") + '</span>' : "";
-        var note = isPri ? '<p>' + ((window.TIF_T && window.TIF_T["map.popNote"]) || "Active programme geography for Tree India Foundation.") + '</p>' : "";
+        var L = window.TIF_L || {};
+        var loc = (L.districts && L.districts[name]) || name;
+        var badge = isPri ? '<span class="badge">' + (L.legendPri || "TIF priority district") + '</span>' : "";
+        var note = isPri ? '<p>' + (L.popNote || "Active programme geography for Tree India Foundation.") + '</p>' : "";
         return badge + '<h5>' + loc + '</h5>' + note;
       }
       function showFor(path) {

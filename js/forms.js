@@ -3,7 +3,8 @@
    Apps Script routes it to the correct Sheet tab. */
 (function () {
   function t(key, fallback) {
-    return (window.TIF_T && window.TIF_T[key]) || fallback;
+    var k = key.replace(/^form\./, "");
+    return (window.TIF_L && window.TIF_L.form && window.TIF_L.form[k]) || fallback;
   }
   function setNote(form, msg, kind) {
     var n = form.querySelector("[data-note]");
