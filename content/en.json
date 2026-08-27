@@ -42,7 +42,7 @@
  "pillars": [
   {
    "t": "Build Capacity",
-   "d": "Equip teachers, educators and school leaders with the knowledge and approaches to create meaningful learning experiences."
+   "d": "Equip teachers and school leaders with the approaches to design meaningful learning experiences."
   },
   {
    "t": "Learn",
@@ -50,11 +50,11 @@
   },
   {
    "t": "Explore and Connect",
-   "d": "Step beyond the classroom to experience real environments, communities and contexts, linking academic knowledge with people, places, nature, livelihoods and real challenges."
+   "d": "Step beyond the classroom to learn from real places, ecosystems, livelihoods and communities."
   },
   {
    "t": "Create and Act",
-   "d": "Apply learning through hands-on projects, experiments, problem-solving and teamwork, turning learning into action at the level of the individual, the school and the community."
+   "d": "Turn learning into action through hands-on projects, experiments and teamwork, in the classroom, the school and the community."
   }
  ],
  "aim": {
@@ -95,38 +95,38 @@
  },
  "work": {
   "eyebrow": "What we do",
-  "title": "Programmes that plant, teach, and last",
-  "intro": "Each initiative connects ecology with education, turning plantation into a lived, measured practice for schools and communities.",
+  "title": "Programmes that teach, grow, and last",
+  "intro": "Every initiative begins with learning. We build green skills and experiential learning with students and teachers, then turn that learning into visible action across campuses and communities.",
   "items": [
    {
-    "t": "Miyawaki Reforestation",
-    "d": "Dense, fast-growing native forests on small urban and rural plots, designed to become self-sustaining within a few years.",
-    "tag": "Reforestation"
+    "t": "Green Skills & Experiential Learning",
+    "sub": "Learning by doing. Building skills for a sustainable future.",
+    "d1": "TIF creates hands-on learning experiences that help learners understand environmental challenges, build green and transferable skills, and turn what they learn into action.",
+    "d2": "Through projects, experiments, sustainability challenges and student-led initiatives, learners develop critical thinking, creativity, collaboration, communication, problem solving and responsible decision making."
    },
    {
-    "t": "Green School Transformation",
-    "d": "An NEP 2020 experiential-learning model with Green Skill Labs, Eco Cabinets, and student Green Ambassadors leading eco-action on campus.",
-    "tag": "Education"
+    "t": "Learning Journeys & Real-World Experiences",
+    "sub": "Connecting curriculum with the real world.",
+    "d1": "The world around us is a living classroom. TIF enables students to step beyond the classroom and learn through real places, ecosystems, livelihoods, crafts, food systems and communities.",
+    "d2": "We design meaningful experiences that connect the curriculum with observation, exploration, interaction, documentation, reflection and real-world problem solving."
    },
    {
-    "t": "Van Mahotsav & Community Plantation",
-    "d": "Annual tree-planting festivals that bring villages, schools, and volunteers together to green shared public land.",
-    "tag": "Community"
+    "t": "Nature, Biodiversity & Living Learning Spaces",
+    "sub": "Growing knowledge. Nurturing nature.",
+    "d1": "TIF turns everyday surroundings into spaces for learning, exploration and ecological action. Through nature-based experiences, reading, observation, gardens and food forests, learners build a deeper understanding of biodiversity, food systems, soil, water and their own relationship with nature.",
+    "d2": "Schools and communities become living classrooms where learners observe, grow, experiment, reflect and take action."
    },
    {
-    "t": "Environmental Education",
-    "d": "Curriculum-linked eco-literacy, teacher training, and student workbooks that make sustainability a habit, not a topic.",
-    "tag": "Education"
+    "t": "Educator & School Transformation",
+    "sub": "Empowering educators. Transforming learning.",
+    "d1": "Teachers and school leaders are at the heart of lasting educational change. TIF works with educators and schools to strengthen experiential, project-based and environment-based learning practices.",
+    "d2": "We build the capacity of teachers and school leaders to connect the curriculum with real-world contexts, green skills, local environments and sustainable development, and we support schools to embed these approaches into everyday teaching and school culture."
    },
    {
-    "t": "Community Forestry",
-    "d": "Working with gram panchayats and forest-fringe communities on CAMPA-aligned plantation and long-term local ownership.",
-    "tag": "Community"
-   },
-   {
-    "t": "Green Accountability",
-    "d": "Geo-tagged plantation records, sapling survival audits, and CSR/BRSR-ready impact reports, so every contribution is traceable.",
-    "tag": "Transparency"
+    "t": "Sustainable Schools & Community Transformation",
+    "sub": "From sustainable schools to sustainable communities.",
+    "d1": "TIF works across schools and communities to turn environmental awareness into practical, collective action. Our approach connects whole-school sustainability with local environmental challenges, youth participation, community knowledge, livelihoods and place-based solutions.",
+    "d2": "Schools become visible models of sustainability, while students, educators and communities become active partners in creating change."
    }
   ]
  },

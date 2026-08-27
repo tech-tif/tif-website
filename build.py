@@ -6,7 +6,7 @@ import json, os, html as H, re
 DOMAIN = "https://treeindiafoundation.org"
 LANGS  = {"en": "", "hi": "hi/", "mr": "mr/"}     # url path per language
 HTMLLANG = {"en": "en", "hi": "hi", "mr": "mr"}
-MAP_SVG = open(os.path.join(os.path.dirname(__file__), "_map.svg")).read()
+MAP_SVG = open(os.path.join(os.path.dirname(__file__), "_map.svg"), encoding="utf-8").read()
 
 SVG = {  # small inline icons reused
  "pil1":'<path d="M12 22V12"/><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M12 14c0-3-2.5-5-5-5 0 3 2.5 5 5 5Z"/>',
@@ -117,7 +117,7 @@ def hero(c):
 
 def about(c):
     pil = "".join(
-      f'''<div class="pillar"><div class="ic">{icon(SVG[f"pil{i+1}"])}</div><span class="n">0{i+1}</span><h4>{esc(p["t"])}</h4><p>{esc(p["d"])}</p></div>'''
+      f'''<div class="pillar"><span class="n">0{i+1}</span><div class="ic">{icon(SVG[f"pil{i+1}"])}</div><h4>{esc(p["t"])}</h4><p>{esc(p["d"])}</p></div>'''
       for i,p in enumerate(c["pillars"]))
     return f'''<section id="about">
   <div class="wrap">
@@ -129,15 +129,17 @@ def about(c):
     <div class="about-grid">
       <div class="reveal">
         <p style="color:var(--muted);font-size:1.02rem">{esc(c["about"]["body2"])}</p>
+      </div>
+      <div class="reveal">
         <div class="vm">
           <div class="card"><h4><span class="dot"></span><span>{esc(c["about"]["visionT"])}</span></h4><p>{esc(c["about"]["visionB"])}</p></div>
           <div class="card"><h4><span class="dot"></span><span>{esc(c["about"]["missionT"])}</span></h4><p>{esc(c["about"]["missionB"])}</p></div>
         </div>
       </div>
-      <div class="reveal">
-        <span class="eyebrow" style="margin-bottom:18px">{esc(c["about"]["pillarsEyebrow"])}</span>
-        <div class="pillars">{pil}</div>
-      </div>
+    </div>
+    <div class="pillars-block reveal">
+      <span class="eyebrow">{esc(c["about"]["pillarsEyebrow"])}</span>
+      <div class="pillars">{pil}</div>
     </div>
   </div>
 </section>'''
@@ -157,13 +159,15 @@ def aim(c):
 </section>'''
 
 def work(c):
+    # icons chosen to fit the 5 programmes (green skills, journeys, nature, educators, community)
     ic=['<path d="M12 22V8"/><path d="M12 8c0-3 2-5 5-5 0 3-2 5-5 5Z"/><path d="M12 12c0-2.5-2-4-4.5-4C7.5 10.5 9.5 12 12 12Z"/>',
-        '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/>',
-        '<path d="M12 2v6"/><path d="M12 8a4 4 0 0 0 4-4 4 4 0 0 0-4 4Z"/><path d="M12 8a4 4 0 0 1-4-4 4 4 0 0 1 4 4Z"/><path d="M5 22c0-5 3-8 7-8s7 3 7 8"/>',
-        '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2Z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7Z"/>',
-        '<circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8Z"/>',
-        '<path d="M3 3v18h18"/><path d="m7 14 3-4 4 3 5-7"/>']
-    cards="".join(f'''<div class="prog reveal"><div class="ic">{icon(ic[i])}</div><h3>{esc(it["t"])}</h3><p>{esc(it["d"])}</p><span class="tag">{esc(it["tag"])}</span></div>''' for i,it in enumerate(c["work"]["items"]))
+        '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/>',
+        '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>',
+        '<path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/>',
+        '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>']
+    cards="".join(
+      f'''<div class="prog reveal"><div class="ic">{icon(ic[i])}</div><h3>{esc(it["t"])}</h3><p class="prog-sub">{esc(it["sub"])}</p><p>{esc(it["d1"])}</p><p>{esc(it["d2"])}</p></div>'''
+      for i,it in enumerate(c["work"]["items"]))
     return f'''<section id="work">
   <div class="wrap">
     <div class="section-head reveal"><span class="eyebrow">{esc(c["work"]["eyebrow"])}</span><h2>{esc(c["work"]["title"])}</h2><p>{esc(c["work"]["intro"])}</p></div>
@@ -363,11 +367,13 @@ def page(c, lang):
 
 def main():
     for lang,path in LANGS.items():
-        c=json.load(open(f"content/{lang}.json"))
+        with open(f"content/{lang}.json", encoding="utf-8") as fh:
+            c=json.load(fh)
         outdir = "." if path=="" else path.rstrip("/")
         os.makedirs(outdir, exist_ok=True)
         out = os.path.join(outdir,"index.html")
-        open(out,"w").write(page(c,lang))
+        with open(out, "w", encoding="utf-8") as fh:
+            fh.write(page(c,lang))
         print("wrote", out)
 
 if __name__=="__main__":
